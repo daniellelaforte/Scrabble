@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" type="text/css" href="scrabble.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
 
  
   
@@ -26,12 +27,13 @@
 
 <div class="typesDemo row">
 
-    <div ng-repeat="list in lists" class="col-md-4">
-        <div class="panel panel-info">
-            <div class="panel-heading">
+   <!--  <div ng-repeat="list in lists" class="col-md-4"> -->
+        <div ng-repeat="list in lists" class="inline">
+       <!--  <div class="panel panel-info"> -->
+            <!-- <div class="panel-heading">
                 <h3 class="panel-title">List of {{list.label}} (max. {{list.max}})</h3>
-            </div>
-            <div class="panel-body" >
+            </div> -->
+           <!--  <div class="panel-body" > -->
                <ul dnd-list="list.people" 
     dnd-allowed-types="list.allowedTypes"
     dnd-disable-if="list.people.length >= list.max">
@@ -45,14 +47,14 @@
         class="background-{{person.type}}"
         >
         <div class="handle">:::</div>
-        <div class="name" dnd-nodrag>
+       <!--  <div class="name" dnd-nodrag>
             <input type="text" ng-model="person.name" class="background-{{person.type}} form-control input-sm">
-        </div>
+        </div> -->
     </li>
-
+<!-- 
     <li class="dndPlaceholder">
         Drop any <strong>{{list.allowedTypes.join(' or ')}}</strong> here
-    </li>
+    </li> -->
 
 </ul> 
 
@@ -60,11 +62,18 @@
 
 
 
-            </div>
-        </div>
+           <!--  </div>
+        </div> -->
     </div>
 
+
+      
+
 </div>
+
+
+
+
 
 <div class="row">
     <div class="col-md-8" view-source="types"></div>
