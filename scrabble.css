@@ -2,7 +2,7 @@
  * For the correct positioning of the placeholder element, the dnd-list and
  * it's children must have position: relative
  */
-
+/** { box-sizing: border-box } */
 
 .typesDemo ul[dnd-list],
 .typesDemo ul[dnd-list] > li {
@@ -16,13 +16,14 @@
  */
 .typesDemo ul[dnd-list] {
     /*min-height: 42px;*/
-    min-height: 50px;
-    min-width: 50px;
-    max-height: 50px;
+    min-height: 52px;
+    min-width: 52px;
+    max-height: 52px;
    /* padding-left: 5px;*/
-    background-color: #7f8c8d;
+    background-color: #bdc3c7;
     margin: 0px;
     padding: 0px;
+    border: 1px solid black;
 }
 
 /**
@@ -66,6 +67,8 @@
     width: 50px;
     margin: 0px;
     padding: 0px;
+    border: 1px solid black;
+   
     /*padding: 0px 15px;*/
    /* margin-bottom: -1px;*/
     
@@ -82,11 +85,13 @@
  * Gender-specifc background
  */
 .typesDemo ul[dnd-list] li.background-man {
-    background-color: #CAE0FC;
+    background-color: rgb(245, 220, 167);
+    border: 1px solid black;
 }
 
 .typesDemo ul[dnd-list] li.background-woman {
-    background-color: #FFE2F5;
+    background-color: rgb(245, 220, 167);
+    border: 1px solid black;
 }
 
 /*.typesDemo ul[dnd-list] input.background-man {
@@ -105,6 +110,16 @@
 .typesDemo .handle {
     cursor: move;
     position: absolute;
+    left: 3px;
+    top: -1px;
+    /*top: 14px;*/
+}
+
+.typesDemo .letter {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    font-size: 26px;
     /*top: 14px;*/
 }
 

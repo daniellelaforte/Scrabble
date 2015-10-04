@@ -47,6 +47,7 @@
         class="background-{{person.type}}"
         >
         <div class="handle">::</div>
+        <div class="letter">A</div>
        <!--  <div class="name" dnd-nodrag>
             <input type="text" ng-model="person.name" class="background-{{person.type}} form-control input-sm">
         </div> -->
@@ -57,20 +58,120 @@
     </li> -->
 
 </ul> 
-
-
-
-
-
-           <!--  </div>
+         <!--  </div>
         </div> -->
     </div>
-
-
-      
-
 </div>
 
+<div class="typesDemo row" style="margin-left:10px; max-height:50px">
+        <div ng-repeat="list11 in lists1" class="inline">
+               <ul dnd-list="list11.people" 
+                     dnd-allowed-types="list11.allowedTypes"
+                        dnd-disable-if="list11.people.length >= list11.max">
+
+                        <li ng-repeat="person11 in list11.people"
+                        dnd-draggable="person11"
+                        dnd-type="person11.type"
+                        dnd-disable-if="person11.type == 'unknown'"
+                        dnd-moved="list11.people.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        class="background-{{person11.type}}"
+                        >
+                            <div class="handle">::</div>
+                            <div class="letter">A</div>
+                        </li>
+                </ul> 
+
+        </div>
+</div>
+
+<div class="typesDemo row" style="margin-left:10px; max-height:50px">
+        <div ng-repeat="list22 in lists2" class="inline">
+               <ul dnd-list="list22.people" 
+                     dnd-allowed-types="list22.allowedTypes"
+                        dnd-disable-if="list22.people.length >= list22.max">
+
+                        <li ng-repeat="person22 in list22.people"
+                        dnd-draggable="person22"
+                        dnd-type="person22.type"
+                        dnd-disable-if="person22.type == 'unknown'"
+                        dnd-moved="list22.people.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        class="background-{{person22.type}}"
+                        >
+                            <div class="handle">::</div>
+                            <div class="letter">A</div>
+                        </li>
+                </ul> 
+
+        </div>
+</div>
+
+<div class="typesDemo row" style="margin-left:10px; max-height:50px">
+        <div ng-repeat="list33 in lists3" class="inline">
+               <ul dnd-list="list33.people" 
+                     dnd-allowed-types="list33.allowedTypes"
+                        dnd-disable-if="list33.people.length >= list33.max">
+
+                        <li ng-repeat="person33 in list33.people"
+                        dnd-draggable="person33"
+                        dnd-type="person33.type"
+                        dnd-disable-if="person33.type == 'unknown'"
+                        dnd-moved="list33.people.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        class="background-{{person33.type}}"
+                        >
+                            <div class="handle">::</div>
+                            <div class="letter">A</div>
+                        </li>
+                </ul> 
+
+        </div>
+</div>
+
+<div class="typesDemo row" style="margin-left:10px; max-height:50px">
+        <div ng-repeat="list44 in lists4" class="inline">
+               <ul dnd-list="list44.people" 
+                     dnd-allowed-types="list44.allowedTypes"
+                        dnd-disable-if="list44.people.length >= list44.max">
+
+                        <li ng-repeat="person44 in list44.people"
+                        dnd-draggable="person44"
+                        dnd-type="person44.type"
+                        dnd-disable-if="person44.type == 'unknown'"
+                        dnd-moved="list44.people.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        class="background-{{person44.type}}"
+                        >
+                            <div class="handle">::</div>
+                            <div class="letter">A</div>
+                        </li>
+                </ul> 
+
+        </div>
+</div>
+
+<div class="typesDemo row" style="margin-left:10px; max-height:50px">
+        <div ng-repeat="list55 in lists5" class="inline">
+               <ul dnd-list="list55.people" 
+                     dnd-allowed-types="list55.allowedTypes"
+                        dnd-disable-if="list55.people.length >= list55.max">
+
+                        <li ng-repeat="person55 in list55.people"
+                        dnd-draggable="person55"
+                        dnd-type="person55.type"
+                        dnd-disable-if="person55.type == 'unknown'"
+                        dnd-moved="list55.people.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        class="background-{{person55.type}}"
+                        >
+                            <div class="handle">::</div>
+                            <div class="letter">A</div>
+                        </li>
+                </ul> 
+
+        </div>
+</div>
 
 
 
