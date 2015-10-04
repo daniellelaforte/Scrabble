@@ -33,7 +33,7 @@ angular.module('myapp').controller('SimpleDemoController', ['$scope', function($
             allowedTypes: ['man', 'woman'],
             max: 1,
             people: [
-                {name: "Alice", type: "woman"},
+                {name: "Alice", type: "man"},
                
             ]
         },
@@ -42,24 +42,24 @@ angular.module('myapp').controller('SimpleDemoController', ['$scope', function($
             allowedTypes: ['man', 'woman'],
             max: 1,
             people: [
-               
+               {name: "Alice", type: "woman"},
             ]
         },
         {
-            label: "People",
-            allowedTypes: ['man', 'woman'],
-            max: 1,
-            people: [
-                {name: "Alice", type: "woman"},
-               
-            ]
-        },
-        {
-            label: "People",
+            label: "diff",
             allowedTypes: ['man', 'woman'],
             max: 1,
             people: [
                
+               
+            ]
+        },
+        {
+            label: "some",
+            allowedTypes: ['man', 'woman'],
+            max: 1,
+            people: [
+               {name: "Alice", type: "woman"},
             ]
         }
     ];
