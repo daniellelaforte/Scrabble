@@ -31,13 +31,9 @@ angular.module('myapp').controller('SimpleDemoController', ['$scope', function($
         {
             label: "People",
             allowedTypes: ['man', 'woman'],
-            max: 6,
+            max: 1,
             people: [
-                {name: "Frank", type: "man"},
-                {name: "Mallory", type: "woman"},
-                {name: "Alex", type: "unknown"},
-                {name: "Oscar", type: "man"},
-                {name: "Wendy", type: "woman"}
+               
             ]
         }
     ];
