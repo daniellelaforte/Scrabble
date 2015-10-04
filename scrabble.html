@@ -11,64 +11,74 @@
     <title>Scrabble</title>
 </head>
 <body ng-controller="SimpleDemoController">
-<h1>Demo: Simple Lists</h1>
+<h1>Demo: Item Types</h1>
 
 <div class="alert alert-success">
     <strong>Instructions:</strong>
-    Drag &amp; drop the list items to move them around, or just click to select them.
-    If that's too boring, check out the <a href="#/nested">nested container demo</a>
+    Drag &amp; drop the names to move them around. Note that the names can not be
+    dropped in the list for the wrong gender. This is achieved with the dnd-type and
+    dnd-allowed-types attributes.
+    This demo also shows the use of the dnd-disable-if attribute, which is used here
+    to limit the number of names per list, as well as fix Alex' position.
+    You can combine these functions with <a href="#/nested">nested lists</a>
+    to build very powerful UIs.
 </div>
 
-<div class="simpleDemo row">
+<div class="typesDemo row">
 
-    <div class="col-md-8">
-        <div class="row">
-            <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">List {{listName}}</h3>
-                    </div>
-                    <div class="panel-body" ><!-- The dnd-list directive allows to drop elements into it.
-     The dropped data will be added to the referenced list -->
-<ul dnd-list="list">
-    <!-- The dnd-draggable directive makes an element draggable and will
-         transfer the object that was assigned to it. If an element was
-         dragged away, you have to remove it from the original list
-         yourself using the dnd-moved attribute -->
-    <li ng-repeat="item in list"
-        dnd-draggable="item"
-        dnd-moved="list.splice($index, 1)"
+    <div ng-repeat="list in lists" class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">List of {{list.label}} (max. {{list.max}})</h3>
+            </div>
+            <div class="panel-body" >
+               <ul dnd-list="list.people" 
+    dnd-allowed-types="list.allowedTypes"
+    dnd-disable-if="list.people.length >= list.max">
+
+    <li ng-repeat="person in list.people"
+        dnd-draggable="person"
+        dnd-type="person.type"
+        dnd-disable-if="person.type == 'unknown'"
+        dnd-moved="list.people.splice($index, 1)"
         dnd-effect-allowed="move"
-        dnd-selected="models.selected = item"
-        ng-class="{'selected': models.selected === item}"
+        class="background-{{person.type}}"
         >
-        {{item.label}}
+        <div class="handle">:::</div>
+        <div class="name" dnd-nodrag>
+            <input type="text" ng-model="person.name" class="background-{{person.type}} form-control input-sm">
+        </div>
     </li>
-</ul>
+
+    <li class="dndPlaceholder">
+        Drop any <strong>{{list.allowedTypes.join(' or ')}}</strong> here
+    </li>
+
+</ul> 
 
 
 
 
-</div>
-                </div>
+
             </div>
         </div>
-
-        <div view-source="simple"></div>
-
     </div>
 
+</div>
+
+<div class="row">
+    <div class="col-md-8" view-source="types"></div>
+    
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Generated Model</h3>
+                <h3 class="panel-title">List Models</h3>
             </div>
             <div class="panel-body">
                 <pre class="code">{{modelAsJson}}</pre>
             </div>
         </div>
     </div>
-
 </div>
 
 
