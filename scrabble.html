@@ -12,9 +12,9 @@
     <title>Scrabble</title>
 </head>
 <body ng-controller="SimpleDemoController">
-<h1>Demo: Item Types</h1>
+<h1>Scrabble</h1>
 
-<div class="alert alert-success">
+<!-- <div class="alert alert-success">
     <strong>Instructions:</strong>
     Drag &amp; drop the names to move them around. Note that the names can not be
     dropped in the list for the wrong gender. This is achieved with the dnd-type and
@@ -23,7 +23,7 @@
     to limit the number of names per list, as well as fix Alex' position.
     You can combine these functions with <a href="#/nested">nested lists</a>
     to build very powerful UIs.
-</div>
+</div> -->
 
 <div class="typesDemo row" style="margin-left:10px; max-height:50px">
 
@@ -47,7 +47,7 @@
         class="background-{{person.type}}"
         >
         <div class="handle">::</div>
-        <div class="letter">A</div>
+        <div class="letter">{{person.name}}</div>
        <!--  <div class="name" dnd-nodrag>
             <input type="text" ng-model="person.name" class="background-{{person.type}} form-control input-sm">
         </div> -->
@@ -78,7 +78,7 @@
                         class="background-{{person11.type}}"
                         >
                             <div class="handle">::</div>
-                            <div class="letter">A</div>
+                            <div class="letter">{{person11.name}}</div>
                         </li>
                 </ul> 
 
@@ -100,7 +100,7 @@
                         class="background-{{person22.type}}"
                         >
                             <div class="handle">::</div>
-                            <div class="letter">A</div>
+                            <div class="letter">{{person22.name}}</div>
                         </li>
                 </ul> 
 
@@ -122,7 +122,7 @@
                         class="background-{{person33.type}}"
                         >
                             <div class="handle">::</div>
-                            <div class="letter">A</div>
+                            <div class="letter">{{person33.name}}</div>
                         </li>
                 </ul> 
 
@@ -144,7 +144,7 @@
                         class="background-{{person44.type}}"
                         >
                             <div class="handle">::</div>
-                            <div class="letter">A</div>
+                            <div class="letter">{{person44.name}}</div>
                         </li>
                 </ul> 
 
@@ -166,12 +166,35 @@
                         class="background-{{person55.type}}"
                         >
                             <div class="handle">::</div>
-                            <div class="letter">A</div>
+                            <div class="letter">{{person55.name}}</div>
                         </li>
                 </ul> 
 
         </div>
 </div>
+<br><br><br>
+
+<div class="typesDemo row" style="margin-left:10px; max-height:50px">
+        <div ng-repeat="frombank in frombanks" class="inline">
+               <ul dnd-list="frombank.people" 
+                     dnd-allowed-types="frombank.allowedTypes"
+                        dnd-disable-if="frombank.people.length >= frombank.max">
+
+                        <li ng-repeat="tile in frombank.people"
+                        dnd-draggable="tile"
+                        dnd-type="tile.type"
+                        dnd-disable-if="tile.type == 'unknown'"
+                        dnd-moved="frombank.people.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        class="background-{{tile.type}}"
+                        >
+                            <div class="handle">::</div>
+                            <div class="letter">{{tile.name}}</div>
+                        </li>
+                </ul> 
+
+        </div>
+</div><div ng-click="replenish()">Replenish</div>
 
 
 
